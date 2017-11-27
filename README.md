@@ -20,16 +20,6 @@ Các đối tượng có trong hệ thống (theo góc nhìn người lập trì
 5) Nhân thân 
 
 
-# Thiết kế giao diện 
-
-Hệ thống này xây dựng trên nền tảng website và gồm các màn hình chính sau.
-
-1) Trang chủ. 
-2) Trang đăng nhập.
-3) Trang đăng ký tài khoản.
-4) Trang quản lý phác đồ.
-5) Trang cập nhật thông tin cá nhân của người dùng.
-
 # Tính năng của ứng dụng 
 
 1) Tạo tài khoản và đăng nhập.
@@ -38,7 +28,7 @@ Hệ thống này xây dựng trên nền tảng website và gồm các màn hì
 4) Quản lý phác đồ. 
 5) Quản lý nhân thân.
 6) Người dùng cập nhật thông tin cá nhân.
-7) Nhắc nhỏ lịch tiêm chủng.
+7) Nhắc nhở lịch tiêm chủng.
 8) Tham khảo phác đồ tiêm chủng.  
 
 
@@ -73,7 +63,7 @@ Tính năng này cho phép người dùng nhập từ khóa tên thuốc và h�
 
 ### Yêu cầu chức năng 
 
-**Các thông tin cần có cho mỗi loại vaccine bao gồm **
+**Các thông tin cần có cho mỗi loại vaccine bao gồm**
 
 1) Tên vaccine 
 2) Giá bán 
@@ -124,7 +114,7 @@ Người dùng sẽ xác định lại trạng thái mũi tiêm này đã tiêm 
 
 Tính năng này cho phép người dùng tạo thêm một phác đồ cho người thân của mình trong gia đình. Mục đích để có thể dễ dàng quản lý lịch trình tiêm chủng của nhiều người thân trong một tài khoản duy nhất, giúp thuận tiện hơn cho người sử dụng.
 
-Thông tin của nhân thân mới, được tạo ra bởi người dùng chính, giống với các thông tin được yêu cầu trong phần **thông tin người dùng** tuy nhiên không yêu cầu thông tin tài khoản như tên đăng nhập và mật khẩu. 
+Thông tin của nhân thân mới, được tạo ra bởi người dùng chính, giống với các thông tin được yêu cầu trong phần thông tin người dùng **tuy nhiên không yêu cầu thông tin tài khoản như tên đăng nhập và mật khẩu**. 
 
 
 ### Yêu cầu chức năng 
@@ -149,7 +139,56 @@ Các nghiệp vụ quản lý phác đồ đã đề cập ở trên.
 
 
 
+## 6. Người dùng cập nhật thông tin cá nhân
+
+### Mô tả 
+
+Tính năng này cho phép người dùng cập nhật lại các thông tin liên hệ của mình như số điện thoại hoặc địa chỉ email để có thể nhận được lời nhắc hoặc các thông tin từ ứng dụng.
+
+
+### Yêu cầu chức năng 
+
+1) Có lưu trữ lại các thông tin cũ trước khi thay đổi, để phòng việc tài khoản người dùng bị kẻ xấu lợi dụng.
+
+2) Nếu thay đổi địa chỉ email thì sẽ có một thông báo đổi địa chỉ email về email cũ. Việc này phòng ngừa việc kẻ xấu cố ý đổi địa chỉ email để chiếm tài khoản qua cơ chế phục hồi mật khẩu.
 
 
 
+## 7. Nhắc nhở lịch tiêm chủng
+
+### Mô tả 
+
+Tính này cho phép hệ thống gửi một email cho người dùng để nhắc nhở khi đến gần thời gian tiêm.
+
+
+### Yêu cầu chức năng 
+
+Email sẽ được gửi đến tại hai thời điểm:
+
+1) 1 tuần trước khi tiêm.
+2) 1 ngày trước khi tiêm.
+
+
+
+## 8. Tham khảo phác đồ tiêm chủng
+
+### Mô tả 
+
+Tính này cho phép người dùng tra cứu một số phác đồ tiêm chủng chuẩn đã được chỉ định bởi bộ y tế dành riêng cho các loại đối tượng hoặc một loại bệnh lý cụ thể nào đó.
+
+
+### Yêu cầu chức năng 
+
+Dữ liệu cho tính năng này chỉ được nhập bởi cán bộ quản lý và được kiểm duyệt chặt chẽ về nội dung.
+
+
+# Thiết kế giao diện 
+
+Hệ thống này xây dựng trên nền tảng website và gồm các màn hình chính sau.
+
+1) Trang chủ. 
+2) Trang đăng nhập.
+3) Trang đăng ký tài khoản.
+4) Trang quản lý phác đồ.
+5) Trang cập nhật thông tin cá nhân của người dùng.
 
