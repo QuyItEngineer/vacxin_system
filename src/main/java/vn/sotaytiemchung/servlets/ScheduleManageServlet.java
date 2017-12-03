@@ -13,7 +13,8 @@ import vn.sotaytiemchung.exceptions.UserNotFoundException;
 import vn.sotaytiemchung.models.bo.ImmunizationScheduleBO;
 import vn.sotaytiemchung.models.bo.ImmunizationScheduleBOImpl;
 import vn.sotaytiemchung.models.dto.ImmunizationSchedule;
-import vn.sotaytiemchung.models.dto.UserAccount;;
+import vn.sotaytiemchung.models.dto.User;
+import vn.sotaytiemchung.models.utils.SessionManager;;
 
 @WebServlet("/app/schedule")
 public class ScheduleManageServlet extends HttpServlet {
@@ -31,8 +32,8 @@ public class ScheduleManageServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String targetPage;
 
-		// Step 1. Get logged account from session.
-		UserAccount loggedAccount = (UserAccount) request.getSession().getAttribute("account");
+		// Step 1. Get logged user from session.
+		User loggedUser = SessionManager.getCurrentLoggedUser(request);
 
 		// Step 2: Get uid query parameter on URL, this contain user id of that user who
 		// want to view immunization schedule.
@@ -40,13 +41,13 @@ public class ScheduleManageServlet extends HttpServlet {
 
 		// If uid is null, will resolve to current logged user id.
 		if (userId == null)
-			userId = loggedAccount.getUserId();
-
+			userId = loggedUser.getId();
+		
 		// Step 3: Check user permission on schedule.
-		if (!loggedAccount.getId().equalsIgnoreCase(userId)) {
+		if (!loggedUser.getId().equalsIgnoreCase(userId)) {
 			// If logged user id not equals, next check whether logged user
 			// view schedule of related user that created by logged user or not.
-			if (!iScheduleBO.isRelatedUser(loggedAccount.getId(), userId)) {
+			if (!iScheduleBO.isRelatedUser(loggedUser.getId(), userId)) {
 				// If user user don't have permission just send to 403 page.
 				request.setAttribute("message", "You dont't have permission on this schedule.");
 

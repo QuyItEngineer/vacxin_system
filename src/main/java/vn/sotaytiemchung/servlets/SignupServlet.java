@@ -16,6 +16,7 @@ import vn.sotaytiemchung.models.bo.UserAccountBO;
 import vn.sotaytiemchung.models.bo.UserAccountBOImpl;
 import vn.sotaytiemchung.models.dto.User;
 import vn.sotaytiemchung.models.dto.UserAccount;
+import vn.sotaytiemchung.models.utils.SessionManager;
 
 @WebServlet("/signup")
 public class SignupServlet extends HttpServlet {
@@ -56,7 +57,7 @@ public class SignupServlet extends HttpServlet {
 					request.getParameter("uPassword"));
 
 			// Step 3: After sign up completed, do save new user account to session.
-			request.getSession().setAttribute("account", account);
+			SessionManager.initialSession(request, account);
 
 			// Set target redirect page is dash board.
 			targetPage = "/WEB-INF/pages/dashboard.jsp";

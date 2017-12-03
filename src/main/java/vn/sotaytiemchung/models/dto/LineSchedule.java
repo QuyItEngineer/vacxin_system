@@ -2,9 +2,26 @@ package vn.sotaytiemchung.models.dto;
 
 public class LineSchedule {
 	String id;
-	User user;
 	String vaccineName;
+	String note;
 	String status;
+	User user;
+	
+	public String getVaccineName() {
+		return vaccineName;
+	}
+
+	public void setVaccineName(String vaccineName) {
+		this.vaccineName = vaccineName;
+	}
+
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
 
 	public String getStatus() {
 		return status;
