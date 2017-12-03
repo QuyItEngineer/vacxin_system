@@ -11,27 +11,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vn.sotaytiemchung.exceptions.AccountException;
-import vn.sotaytiemchung.models.bo.UserAccountBO;
-import vn.sotaytiemchung.models.bo.UserAccountBOImpl;
+import vn.sotaytiemchung.models.bo.UserBO;
 import vn.sotaytiemchung.models.dto.User;
 import vn.sotaytiemchung.models.dto.UserAccount;
 
-@WebServlet("/signup")
-public class SignupServlet extends HttpServlet {
+@WebServlet("/app/add-user")
+public class CreateRelatedUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	UserAccountBO userAccountBO;
 
-	public SignupServlet() {
+	UserBO userBO;
+
+	public CreateRelatedUserServlet() {
 		super();
-		userAccountBO = new UserAccountBOImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		// 1. Create dispatcher for forward data for JSP file.
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/signup.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/add-related-user.jsp");
 
 		// 2. Forward all data to signup.jsp file for process render view.
 		rd.forward(request, response);
@@ -42,6 +39,8 @@ public class SignupServlet extends HttpServlet {
 		String targetPage;
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
 
+		UserAccount loggedAccount = (UserAccount) request.getSession().getAttribute("account");
+		
 		try {
 			// Step 1: Get user data from client input form.
 			User newUser = new User();
@@ -51,28 +50,24 @@ public class SignupServlet extends HttpServlet {
 			newUser.setBirthday(formatter.parse(request.getParameter("uBirthday")));
 			newUser.setWeight(Integer.parseInt(request.getParameter("uWeight")));
 
-			// Step 2: Do sign up user with credential information.
-			UserAccount account = userAccountBO.signup(newUser, request.getParameter("uEmail"),
-					request.getParameter("uPassword"));
+			// Step 2: Create new related user profile.
+			User newCreatedUser = userBO.createRelatedUser(newUser, loggedAccount.getId());
 
-			// Step 3: After sign up completed, do save new user account to session.
-			request.getSession().setAttribute("account", account);
+			if (newCreatedUser != null) {
+				// On created user success, redirect to schedule manage page of new user.
+				targetPage = "/app?uid=" + newCreatedUser.getId();
 
-			// Set target redirect page is dash board.
-			targetPage = "/WEB-INF/pages/dashboard.jsp";
+			} else {
+				// On error send back to create new related user page.
+				targetPage = "/WEB-INF/pages/add-related-user.jsp";
+				request.setAttribute("message", "Has error when trying to create new user profile.");
+			}
 
-		} catch (AccountException | ParseException e) {
-			// If Have error will send back user to sign up page.
+		} catch (ParseException e) {
+			targetPage = "/WEB-INF/pages/400.jsp";
 			request.setAttribute("message", e.getMessage());
-
-			// Send back user to sign up page.
-			targetPage = "/WEB-INF/pages/signup.jsp";
 		}
 
-		// Step 3. Create dispatcher for forward data for JSP file.
-		RequestDispatcher rd = request.getRequestDispatcher(targetPage);
-
-		// Step 4. Forward all data to signup.jsp file for process render view.
-		rd.forward(request, response);
+		request.getRequestDispatcher(targetPage).forward(request, response);
 	}
 }
