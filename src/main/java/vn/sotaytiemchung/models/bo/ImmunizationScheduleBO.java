@@ -6,7 +6,9 @@ import vn.sotaytiemchung.models.dto.LineSchedule;
 
 public interface ImmunizationScheduleBO {
 	public ImmunizationSchedule getUserSchedule(String userId) throws UserNotFoundException;
-	
+
+	public boolean isRelatedUser(String primaryUserId, String secondaryUserId);
+
 	public LineSchedule getLineSchedule(String lineScheduleId);
 
 	public LineSchedule updateLineSchedule(LineSchedule lineSchedule);

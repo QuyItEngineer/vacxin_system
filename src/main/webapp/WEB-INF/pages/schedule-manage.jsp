@@ -4,13 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>User Immunization Schedule</title>
+<title>Immunization Schedule Page</title>
 </head>
 <body>
-	<h1>Show all button link to features of application</h1>
-	<p>My Schedule</p>
-	<p>Related user managed</p>
-	<p>Support</p>
-	<h1>This will show immunization schedule of current logged user</h1>
+	<h1>This page will show immunization schedule of selected user.</h1>
+	<p>Render combo-box has all related users here.</p>
+	<p>using for each on ${schedule} attribute to render schedule tree
+		of selected user.</p>
 </body>
 </html>

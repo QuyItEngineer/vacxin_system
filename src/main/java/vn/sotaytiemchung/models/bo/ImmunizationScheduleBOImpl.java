@@ -47,4 +47,12 @@ public class ImmunizationScheduleBOImpl implements ImmunizationScheduleBO {
 	public LineSchedule removeLineSchedule(String lineScheduleId) {
 		return iScheduleDAO.removeLineSchedule(lineScheduleId);
 	}
+
+	@Override
+	public boolean isRelatedUser(String primaryUserId, String secondaryUserId) {
+		// TODO Query to database and check if primaryUserId is that user who created
+		// profile for secondaryUserId
+		
+		return true;
+	}
 }

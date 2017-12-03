@@ -44,4 +44,11 @@ public class UserBOImpl implements UserBO {
 	private boolean validationUserData(User user) {
 		return true;
 	}
+
+	@Override
+	public User createRelatedUser(User relatedUser, String primaryUserId) {
+		// Step 1: Create new user profile.
+		// Step 2: Create related user record for make relationship.
+		return null;
+	}
 }

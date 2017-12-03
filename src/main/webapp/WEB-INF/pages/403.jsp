@@ -4,13 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>User Immunization Schedule</title>
+<title>403 - Forbidden</title>
 </head>
 <body>
-	<h1>Show all button link to features of application</h1>
-	<p>My Schedule</p>
-	<p>Related user managed</p>
-	<p>Support</p>
-	<h1>This will show immunization schedule of current logged user</h1>
+	<h1>403 - Forbidden</h1>
+	<p>${message}</p>
 </body>
 </html>
