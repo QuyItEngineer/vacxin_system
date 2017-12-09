@@ -23,6 +23,7 @@ public class UserAccountBOImpl implements UserAccountBO {
 		if (userAccountDAO.findAccountByEmail(email) != null) {
 			throw new AccountException("Email already exits");
 		}
+		
 		// Step 2: Create new user profile.
 		User newUser = userBO.createUser(user);
 
