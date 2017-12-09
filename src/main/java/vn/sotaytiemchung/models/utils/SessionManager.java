@@ -19,4 +19,9 @@ public class SessionManager {
 	public static void initialSession(HttpServletRequest request, UserAccount account) {
 		request.getSession().setAttribute("logged-account", account);
 	}
+
+	public static boolean isAuthenticated(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

@@ -30,7 +30,11 @@ public class SignupServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		if(SessionManager.isAuthenticated(request)) {
+			
+		}
+		
 		// 1. Create dispatcher for forward data for JSP file.
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/signup.jsp");
 

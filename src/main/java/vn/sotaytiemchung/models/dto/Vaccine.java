@@ -2,46 +2,48 @@ package vn.sotaytiemchung.models.dto;
 
 public class Vaccine {
 	String id;
-	String ten;
-	float giaBan;
-	String congDung;
-	String chiDinh;
-	String luuY;
-	
+	String name;
+	String description;
+	String note;
+	float price;
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getTen() {
-		return ten;
+
+	public String getName() {
+		return name;
 	}
-	public void setTen(String ten) {
-		this.ten = ten;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public float getGiaBan() {
-		return giaBan;
+
+	public String getDescription() {
+		return description;
 	}
-	public void setGiaBan(float giaBan) {
-		this.giaBan = giaBan;
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	public String getCongDung() {
-		return congDung;
+
+	public String getNote() {
+		return note;
 	}
-	public void setCongDung(String congDung) {
-		this.congDung = congDung;
+
+	public void setNote(String note) {
+		this.note = note;
 	}
-	public String getChiDinh() {
-		return chiDinh;
+
+	public float getPrice() {
+		return price;
 	}
-	public void setChiDinh(String chiDinh) {
-		this.chiDinh = chiDinh;
-	}
-	public String getLuuY() {
-		return luuY;
-	}
-	public void setLuuY(String luuY) {
-		this.luuY = luuY;
+
+	public void setPrice(float price) {
+		this.price = price;
 	}
 }
