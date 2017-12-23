@@ -507,4 +507,12 @@ Thiết kế trên ngôn ngữ lập trình Java.
 
 
 
+### Sơ đồ thực thế quan hệ (ERD) 
+
+![ERD](./docs/images/sttc-erd-diagram.jpg  "ERD")
+
+
+### Sơ đồ thiết kế cơ sở dữ liệu (Database Design Diagram) 
+
+![Database Design Diagram](./docs/images/sttc-database-diagram.jpg  "Database Design Diagram")
 
