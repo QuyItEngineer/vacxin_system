@@ -1,0 +1,62 @@
+.back_phacdo{
+	background-image: url(../images/slide_bg.jpg);
+	width: 100%;
+  height: 50%;
+  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+.logo_phacdo{
+	width: 100%;
+	height: 90%;
+}
+.right{
+	float: right;
+	color: white;
+}
+.noi_dung{
+	background-color: aliceblue;
+	border-radius: 10px;
+	margin-bottom: 15px;
+}
+button.btn.vongtrong {
+    border-radius: 86%;
+    width: 130px;
+    padding-left: 20px;
+    height: 130px;
+    margin-left: 30px;
+}
+.lichtiem {
+    display: flex;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.left {
+    margin-top: 30px;
+    margin-left: 60px;
+       
+}
+.date_mui_tiem h4{
+	 font-weight: 500;
+}
+
+.thongtin_user.right {
+    margin-top: 30px;
+}
+.somuitiem {
+    position: absolute;
+    bottom: 15px;
+    right: 90px;
+}
+.more{
+	position: absolute;
+    top: 30px;
+    right: 120px;
+    font-size: 35px;
+}
+span.fa.fw.fa-chevron-circle-right {
+    color: dodgerblue;
+}
