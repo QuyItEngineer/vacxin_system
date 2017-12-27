@@ -6,7 +6,7 @@
 
 ### II. Phân tích hiện trạng và xác định yêu cầu 
 
-**1) Nêu lên sơ đồ phân rã chức năng tổng (Cái thực tế cần) **
+**1) Nêu lên sơ đồ phân rã chức năng tổng (Cái thực tế cần)**
 
 **Nêu lên phạm vi của đề tài mà nhóm làm **
  + QL đối tượng tiêm chủng 
@@ -17,9 +17,9 @@
 
 Để vào đây sơ đồ DFD ngày xưa và phân tích ra
 
-**3) Phân tích nghiệp vụ quản lý đối tượng **
+**3) Phân tích nghiệp vụ quản lý đối tượng**
 
-**4) Nói về hai cái mình làm là **
+**4) Nói về hai cái mình làm là**
 
 + Quản lý lịch tiêm chủng cá nhân 
 + Quản lý thông tin hồ sơ cá nhân 
@@ -80,6 +80,9 @@ Qua quá trình phân tích thì bọn em xây dựng được sơ đồ phân r
 
 ![Sơ đồ phân rã chức năng tổng](./images/sttc-phan-ra-chuc-nang-tong.jpg  "Sơ đồ phân rã chức năng tổng")
  
+ Hình 2.1 - Sơ đồ phân rã chức năng của hệ thống quản lý trung tâm y tế dự phòng.
+ 
+ 
  Qua sơ đồ, thấy rằng bài toán quản lý trung tâm tiêm chủng có thể chia nhỏ thành sáu bài toán bao gồm:
  
 + Quản lý thông tin cán bộ 
@@ -96,6 +99,8 @@ Qua quá trình phân tích thì bọn em xây dựng được sơ đồ phân r
 
 ![Quản lý thông tin cán bộ](./images/ql-can-bo.jpg  "Quản lý thông tin cán bộ")
 
+Hình 2.2.1 - Phân rã chức năng quản lý thông tin cán bộ
+
 Quản lý thông tin các bộ bao gồm hai phần 
 
 **a) Quản lý hồ sơ cán bộ**
@@ -109,6 +114,8 @@ Trong quy trình tiêm chủng 4 bước chuẩn và nghiệp vụ lập kế ho
 **2.2 Quản lý đối tượng tiêm chủng**
  
  ![Quản lý đối tượng tiêm chủng](./images/ql-doi-tuong.jpg  "Quản lý đối tượng tiêm chủng")
+ 
+ Hình 2.2.1 - Phân rã chức năng quản lý đối tượng tiêm chủng 
  
  Đối tượng tiêm chủng ở đây chính là người tiêm chủng. Bài toán quản lý đối tượng tiêm chủng bao gồm:
  
@@ -135,6 +142,8 @@ Trong quy trình tiêm chủng 4 bước chuẩn và nghiệp vụ lập kế ho
  
  ![Quản lý vật tư vaccine](./images/ql-vat-tu-vaccine.jpg  "Quản lý vật tư vaccine")
  
+  Hình 2.4.1 - Phân rã chức năng quản lý vật tư vaccine
+  
  Quản lý vật tư vaccine nhằm xác định số lượng vaccine đang có, tình trạng sử dụng của mỗi loại để từ đó lên kế hoạch nhập thêm hoặc xuất vaccine. Việc quản lý vật tư vaccine bao gồm 
  
  **a) Quản lý nhập vaccine**
@@ -161,6 +170,9 @@ Là việc thông qua các số liệu của địa phương mình, nơi trung t
 **2.5 Quản lý thực hiện tiêm chủng**
 
 ![Quản lý thực hiện tiêm chủng](./images/ql-thuc-hien-tiem-chung.jpg  "Quản lý thực hiện tiêm chủng")
+
+Hình 2.5.1 - Phân rã chức năng quản lý thực hiện tiêm chủng
+
 
 Việc thực hiện tiêm chủng đã được quy định theo công văn của bộ y tế, bao gồm các bước nghiệp vụ sau 
 
@@ -192,11 +204,17 @@ Theo quy định, người được tiêm phải ở lại trung tâm ít nhất
 
 ![Thông báo mời tiêm chủng](./images/thong-bao-tiem-chung.jpg  "Thông báo mời tiêm chủng")
 
+Hình 2.6.1 - Phân rã chức năng thông báo mời tiêm chủng
+
+
 Hiện nay hình thức thông báo đang dùng ở các trung tâm y tế là qua tin nhắn SMS. Đây là hình thức rất tiện dụng và nhanh chóng nhất. Ngoài ra các hệ thống mới còn có thêm tính năng thông báo qua thư điện tử (Email) hoặc chia sẽ các kế hoạch lên các trang thông tin điện tử để truyền bá đến nhân dân.
 
 **2.7 Báo cáo tổng hợp**
 
 ![Báo cáo tổng hợp](./images/bao-cao-tong-hop.jpg  "Báo cáo tổng hợp")
+
+Hình 2.7.1 - Phân rã chức năng báo cáo tổng hợp
+
 
 Báo cáo tổng hợp các các trung tâm y tế dự phòng phải liên tục được gửi về cho bộ y tế, tùy theo lại báo cáo mà có chu kỳ khác nhau. 
 
@@ -220,7 +238,7 @@ Bao gồm quản lý hồ sơ cá nhân, lịch tiêm chủng cá nhân và thô
 
 Bao gồm quản lý các bước trong quy trình tiêm chủng tiêu chuẩn bao gồm tiếp đón, khám sàn lọc, thanh toán, thực hiện tiêm và chăm sóc sau tiêm.
 
-**c) Hệ thống hỗ trợ người dùng tra cứu và quản lý lịch tiêm chủng các nhân **
+**c) Hệ thống hỗ trợ người dùng tra cứu và quản lý lịch tiêm chủng các nhân**
  
  Giúp người dùng ở đây chính là đối tượng tiêm chủng, có thể đăng nhập vào hệ thống, xem và quản lý lịch tiêm chủng cá nhân của mình, đăng ký tiêm chủng và cập nhật hồ sơ cá nhân.
  
