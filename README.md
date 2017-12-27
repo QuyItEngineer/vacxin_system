@@ -1,3 +1,15 @@
+# Lịch sử chỉnh sửa tài liệu 
+
+## Ngày 27/12/2017 
+
++ Quyền cập nhật lại use case mới 
++ Thay đổi nội dung của hai use case là đăng ký tài khoản và tạo mới nhân thân, chuyển hai tính năng này từ User sang cho Employee.
+
++ Thay đổi nội dung use case quản lý hồ sơ người dùng, thêm các trường dữ liệu khác cho User như giới tính, hộ khẩu,... và thêm vào use case này actor là employee.
+
++ thêm mới các use case sau, Tạo hồ sơ đối tượng (#11 và #12) và quản lý việc tiêm chủng bằng 5 bước ( tiếp đón, sàn lọc, thanh toán,tiêm chủng và theo dõi).
+
+
 # Đề tài
 
 Ứng dụng hỗ trợ ngươi dùng quản lý phác đồ tiêm chủng cá nhân.
@@ -126,7 +138,9 @@ Thông tin của nhân thân mới, được tạo ra bởi người dùng chín
 3) Số điện thoại (tuỳ chọn)
 4) Địa chỉ email (tuỳ chọn)
 5) Cân nặng
-
+6) Giới tính
+7) Thông tin hộ khẩu và nơi ở thường trú 
+8) Ngày sinh 
 
 Trong đó địa chỉ email là tuy chọn, nếu có thì khi nhắc nhở hệ thống sẽ gửi về cho cả người dùng chính và các nhân thân, nếu không hệ thống sẽ gửi lời nhắc về email của người dùng chính.
 
@@ -139,7 +153,7 @@ Các nghiệp vụ quản lý phác đồ đã đề cập ở trên.
 
 
 
-## 6. Người dùng cập nhật thông tin cá nhân
+## 6. Tạo và cập nhật hồ sơ đối tượng 
 
 ### Mô tả 
 
@@ -199,7 +213,7 @@ Hệ thống này xây dựng trên nền tảng website và gồm các màn hì
 
 Từ đặc tả yêu cầu nhận được từ giảng viên hướng dẫn, chúng em xây dựng lên sơ đồ use case như dưới đây.
 
-![Sơ đồ use case ](./docs/images/sttc-use-case-diagram.png  "Sơ đồ use case ")
+![Sơ đồ use case ](./docs/images/sttc-use-case-diagram-v2.jpg  "Sơ đồ use case ")
 
 ## Đặc tả chi tiết sơ đồ use case 
 
@@ -228,32 +242,33 @@ Tính năng này cho phép người dùng tìm kiếm vắc-xin theo theo tên.
 3) Tính năng này không yêu cầu đăng nhập.
 
 
-### 2. Signup (Đăng ký tài khoản)
+### 2. Create object account (Đăng ký tài khoản cho đối tượng)
 ----
 
 #### 1.1 Mô tả 
 
-Tính năng này cho phép người dùng tạo mới tải khoản để sử dụng ứng dụng.
+Tính năng này cho phép cán bộ nhân viên tạo mới tải khoản để đối tượng tiêm chủng có thể sử dụng để đăng nhập vào hệ thống.
 
 #### 1.2 Tác nhân 
 
-+ Người dùng (User)
++ Cán bộ nhân viên trung tâm (Employee)
 
 #### 1.3 Luồng nghiệp vụ 
 
-1) Người dùng nhấp vào nút "Đăng ký" trên giao diện.
-2) Hệ thống kiểm tra phiên đăng nhập hiện tại, nếu có thì chuyển đến trang "quản lý phác đồ" nếu chưa đăng nhập thì hiển thị trang "Đăng ký tài khoản mới".
-3) Người dùng điền đầy đủ thông tin vào biểu mẫu và gửi đi.
-4) Hệ thống nhận thông tin gửi đến từ biểu mẫu và tiến hành kiểm tra hợp thức hóa dữ liệu (validation). Tại bước này kiểm tra không trùng lặp địa chỉ thư điện tử (email).
-5) Nếu có lỗi xảy ra thì hiển thị trở lại trang "Đăng ký tài khoản mới" kèm theo đó là hiển thị tin nhắn thông báo lỗi gì đã xảy ra (error messages).
-6) Tiến hành tạo hồ sơ người dùng (profile) và tài khoản đăng nhập (account).
-7) Sau khi tạo tài khoản thành công thì tiến hành tự động đăng nhập vào ứng dụng và chuyển đến trang "quản lý phác đồ".
+1) Nhân viên đăng nhập vào màn hình quản lý trung tâm tiêm chủng.
+2) Nhân viên tìm và mở ra hồ sơ của đối tượng và nhấp vào thẻ tài khoản nếu tìm không thấy hồ sơ đối tượng thì cán bộ phải tạo mới và quay lại bước này.
+3) Hệ thống kiểm tra nếu đối tượng đã có tài khoản thì sẽ hiển thị ra thông tin tài khoản, nếu chưa thì hiển thị nút "Tạo tài khoản mới".
+4) cán bộ điền đầy đủ thông tin vào biểu mẫu và gửi đi.
+5) Hệ thống nhận thông tin gửi đến từ biểu mẫu và tiến hành kiểm tra hợp thức hóa dữ liệu (validation). Tại bước này kiểm tra không trùng lặp địa chỉ thư điện tử (email).
+6) Nếu có lỗi xảy ra thì hiển thị trở lại trang "Đăng ký tài khoản mới" kèm theo đó là hiển thị tin nhắn thông báo lỗi gì đã xảy ra (error messages).
+7) Tiến hành tạo tài khoản đăng nhập cho người dùng (account).
 
 #### 1.4 Yêu cầu nghiệp vụ 
 
-1) Địa chỉ thư điện tử là duy nhất.
-2) Thông tin địa chỉ thư điện tử, mật khẩu, họ tên, năm sinh, cân nặng là bắt buộc.
-3) Mật khẩu phải dài hơn 6 ký tự.
+1) Phải kiểm tra chứng minh nhân dân trước khi thực hiện tính năng này để tránh gian dối.
+2) Địa chỉ thư điện tử là duy nhất.
+3) Thông tin địa chỉ thư điện tử, mật khẩu.
+4) Mật khẩu phải dài hơn 6 ký tự.
 
 
 ### 3. Login (Đăng nhập)
@@ -294,6 +309,7 @@ Tính năng này cho phép người dùng xem phác đồ tiêm chủng của m�
 #### 1.2 Tác nhân 
 
 + Người dùng (User)
++ Cán bộ nhân viên (Employee) 
 
 #### 1.3 Luồng nghiệp vụ 
 
@@ -318,6 +334,7 @@ Tính năng này cho phép người dùng tạo mới một lịch tiêm chủng
 #### 1.2 Tác nhân 
 
 + Người dùng (User)
++ Cán bộ nhân viên (Employee)
 
 #### 1.3 Luồng nghiệp vụ 
 
@@ -332,7 +349,7 @@ Tính năng này cho phép người dùng tạo mới một lịch tiêm chủng
 1) Thông tin ngày tiêm và tên vắc-xin là bắt buộc.
 2) Tính năng này yêu cầu đăng nhập.
 3) Người dùng chỉ có thể tạo lịch tiêm cho chính mình hoặc nhân thân do mình quản lý. 
-
+4) Cán bộ nhân viên sẽ có quyền chỉnh sửa lại lịch tiêm chủng, nhưng mọi hành động phải được ghi lại trong log.
 
 ### 6. Immunization schedule manage - Update line schedule (cập nhật lịch tiêm chủng đã có)
 ----
@@ -344,6 +361,7 @@ Tính năng này cho phép người dùng tạo cập nhật lại một lịch 
 #### 1.2 Tác nhân 
 
 + Người dùng (User)
++ Cán bộ nhân viên (Employee) 
 
 #### 1.3 Luồng nghiệp vụ 
 
@@ -369,7 +387,7 @@ Tính năng này cho phép người dùng tạo thêm hồ sơ nhân thân của
 
 #### 1.2 Tác nhân 
 
-+ Người dùng (User)
++ Cán bộ nhân viên (Employee)
 
 #### 1.3 Luồng nghiệp vụ 
 
@@ -377,14 +395,11 @@ Tính năng này cho phép người dùng tạo thêm hồ sơ nhân thân của
 
 2) Sau khi nhập xong người dùng gửi biểu mẫu, hệ thống sẽ tiếp nhận biểu mẫu lấy thông tin và tiến hành tạo mới hồ sơ người dùng cho nhân thân mới này.
 
-3) Sau khi tạo thành công nhân thân mới, thì hệ thống sẽ chuyển sang trang phác đồ của nhân thân mới được tạo.
 
 #### 1.4 Yêu cầu nghiệp vụ 
 
-1) Thông tin về họ tên, cân nặng và năm sinh là bắt buộc.
-2) Nhân thân không yêu cầu tài khoản.
-3) Tính năng này yêu cầu đăng nhập.
-
+1) Tính năng này yêu cầu đăng nhập.
+2) Cán bộ phải xác định lý lịch quan hệ giữa người đăng ký và nhân thân mới tạo xem có thực sự là người thân với nhau hay không dựa trên sổ hộ khẩu và thẻ căn cước.
 
 ### 8. Manage vaccine information (Quản lý thông tin vắc-xin)
 ----
@@ -395,7 +410,7 @@ Tính năng này cho phép người quản lý có thể tạo mới vắc-xin h
 
 #### 1.2 Tác nhân 
 
-+ Người quản lý (Manager)
++ Cán bộ nhân viên (Employee)
 
 #### 1.3 Luồng nghiệp vụ 
 
@@ -462,13 +477,57 @@ Tính năng này cho phép hệ thống tự động gửi email đến cho ngư
 3) Thông tin tài khoản đăng nhập cho quản lý được lưu trữ ở bảng dữ liệu riêng biệt với tài khoản người dùng để bảo đảm về bảo mật và phân quyền.
 
 
+### 11. Create immunization object profile (Quản lý hồ sơ đối tượng tiêm chủng)
+----
+
+#### 1.1 Mô tả 
+
+Tính năng này cho phép cán bộ nhân viên tạo mới hồ sơ cho đối tượng.
+
+#### 1.2 Tác nhân 
+
++ Cán bộ nhân viên (Employee) 
+
+#### 1.3 Luồng nghiệp vụ 
+
+Tại màn hình quản lýnhấp vào nút "Tạo mới hồ sơ" và nhập đầy đủ thông tin cần thiết rồi nhấp "tạo" hệ thống sẽ tự động kiểm tra và tạo mới hồ sơ.
+
+
+#### 1.4 Yêu cầu nghiệp vụ 
+
+1) Tính năng này yêu cầu quyền tài khoản của cán bộ nhân viên.
+2) Toàn bộ lược sử về chỉnh sử thông tin hồ sơ đối tượng phải được lưu lại.
+
+### 12. Update user profile (Cập nhật hồ sơ đối tượng tiêm chủng)
+----
+
+#### 1.1 Mô tả 
+
+Tính năng này cho phép cán bộ nhân viên cập nhật hoặc tạo mới hồ sơ cho đối tượng.
+
+#### 1.2 Tác nhân
+ 
++ Người dùng (User)
++ Cán bộ nhân viên (Employee) 
+
+#### 1.3 Luồng nghiệp vụ 
+
++ Đối với can bộ nhân viên, tại màn hình quản lý nếu các bộ muốn cập nhật thông tin hồ sơ cho một đối tượng nào đó thì tiến hành tìm kiếm đối tượng và sau đó cập nhật hồ sơ cho đối tượng được chọn. 
+
++ Đối với người dùng thì có thể nhập vào nút cập nhật hồ sơ trên màn hình người dùng để hiển thị biểu mẫu điền thông tin, sau khi điền đầy đủ thông tin cần thiết thì người dùng nhấp "Lưu" để lưu lại thông tin.
+
+#### 1.4 Yêu cầu nghiệp vụ 
+
+1) Tính năng này yêu cầu đăng nhập.
+2) Toàn bộ lược sử về chỉnh sử thông tin hồ sơ đối tượng phải được lưu lại.
+
 ## Sơ đồ hoạt động (Activity diagram)
 
-### Sơ đồ hoạt động tính năng tạo mới tài khoản 
+### Sơ đồ hoạt động tính năng tạo mới tài khoản
 
 Dựa theo đặc tả yêu cầu và phân tích đặc tả use case, bọn em vẽ ra sơ đồ hoạt động cho tính năng tạo mới tài khoản như sau.
 
-![Signup activity diagram](./docs/images/sttc-signup-activity-diagrams.jpg  "Signup activity diagram")
+![Signup activity diagram](./docs/images/sttc-signup-activity-diagram-v2.jpg  "Signup activity diagram")
 
 
 ### Sơ đồ hoạt động tính năng xem phác đồ 
@@ -484,7 +543,7 @@ Dựa theo đặc tả yêu cầu và phân tích đặc tả use case, bọn em
 
 Dựa theo đặc tả yêu cầu và phân tích đặc tả use case và sơ đồ hoạt động, bọn em vẽ ra sơ đồ hoạt động cho tính năng tạo mới tài khoản như sau.
 
-![Signup sequence diagram](./docs/images/sttc-signup-sequence-diagrams.jpg  "Signup sequence diagram")
+![Signup sequence diagram](./docs/images/sttc-signup-sequence-diagram-v2.jpg  "Signup sequence diagram")
 
 ### Sơ đồ tuần tự tính năng xem phác đồ 
 
@@ -507,4 +566,12 @@ Thiết kế trên ngôn ngữ lập trình Java.
 
 
 
+### Sơ đồ thực thế quan hệ (ERD) 
+
+![ERD](./docs/images/sttc-erd-diagram.jpg  "ERD")
+
+
+### Sơ đồ thiết kế cơ sở dữ liệu (Database Design Diagram) 
+
+![Database Design Diagram](./docs/images/sttc-database-diagram.jpg  "Database Design Diagram")
 
